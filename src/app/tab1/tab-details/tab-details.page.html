@@ -1,0 +1,15 @@
+<ion-header class="ion-no-border" *ngIf="loadedFood">
+  <ion-toolbar>
+    <ion-img class="bannerImage" [src]="loadedFood.imageUrl"> </ion-img>
+
+    <ion-buttons class="backButton" slot="start">
+      <ion-back-button defaultHref="/" color="dark"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-title>hi</ion-title>
+</ion-header>
+
+<ion-content>
+  <h2>{{loadedFood.title}}</h2>
+</ion-content>
