@@ -1,17 +1,57 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<!-- Header -->
+
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios">
     <ion-title>
-      Tab 1
+      <ion-buttons>
+        <ion-chip class="deliveryChip">
+          <ion-label>Delivery</ion-label>
+        </ion-chip>
+        <ion-chip color="dark" outline="true">
+          <ion-label>Pickup</ion-label>
+        </ion-chip>
+      </ion-buttons>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<!-- Header -->
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content [fullscreen]="true">
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let item of promotions">
+      <div class="slideContent">
+        <ion-img class="slideImage" [src]="item.imageUrl"> </ion-img>
+        <div class="slideContentText">
+          <h4>{{item.title}}</h4>
+          <ion-chip color="white" outline="true">
+            <ion-label>{{item.buttonTitle}}</ion-label>
+            <ion-icon name="arrow-forward-sharp"></ion-icon>
+          </ion-chip>
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <!-- List of food items -->
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeLg="4" sizeXs="12" *ngFor="let item of food">
+        <ion-card [routerLink]="['./', item.id]">
+          <!-- <ion-thumbnail> -->
+          <ion-img class="imageCard" [src]="item.imageUrl"></ion-img>
+          <!-- </ion-thumbnail> -->
+          <ion-card-header>
+            <ion-card-subtitle>{{item.title}}</ion-card-subtitle>
+            <ion-card-title>{{item.restaurant}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Founded in 1829 on an isthmus between Lake Monona and Lake Mendota,
+            Madison was named the capital of the Wisconsin Territory in 1836.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
 </ion-content>

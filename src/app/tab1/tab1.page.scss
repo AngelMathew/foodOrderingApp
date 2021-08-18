@@ -1,0 +1,32 @@
+.deliveryChip {
+  background-color: black;
+  color: white;
+}
+.imageCard {
+  object-fit: cover;
+  height: 20em;
+}
+
+ion-slides {
+  margin-top: 1em;
+  height: 10em;
+  background-color: #f4f4f4;
+}
+.slideContent {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  .slideImage {
+    width: 100%;
+  }
+  .slideContentText {
+    position: fixed;
+    height: 15em;
+    width: 50%;
+    top: 0px;
+    padding: 1em;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: start;
+  }
+}
