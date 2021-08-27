@@ -7,6 +7,38 @@
   height: 20em;
 }
 
+.currentLocation {
+  // background-color: bisque;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  .location {
+    align-items: center;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+
+    height: 5em;
+    .dot {
+      height: 5px;
+      width: 5px;
+      background-color: black;
+      border-radius: 50%;
+      display: inline;
+      margin: 0 0.3em;
+    }
+    .locationPara {
+      word-wrap: break-word;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 95%;
+      margin-right: 0.3em;
+    }
+  }
+}
+
 ion-slides {
   margin-top: 1em;
   height: 10em;

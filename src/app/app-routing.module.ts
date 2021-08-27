@@ -7,6 +7,16 @@ const routes: Routes = [
     loadChildren: () =>
       import('./tabs/tabs.module').then((m) => m.TabsPageModule),
   },
+
+  {
+    path: 'map-view',
+    loadChildren: () =>
+      import('./map-view/map-view.module').then((m) => m.MapViewPageModule),
+  },
+  {
+    path: 'splash',
+    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
+  },
   // { path: '', redirectTo: 'recipe', pathMatch: 'full' },
   // { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthPageModule) },
   // {

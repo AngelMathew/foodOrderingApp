@@ -17,12 +17,35 @@ const routes: Routes = [
               import('../tab1/tab1.module').then((m) => m.Tab1PageModule),
           },
           {
-            path: ':foodId',
+            path: 'food/:foodId',
             loadChildren: () =>
               import('../tab1/tab-details/tab-details.module').then(
                 (m) => m.TabDetailsPageModule
               ),
+            children: [
+              {
+                path: '',
+                loadChildren: () =>
+                  import('../tab1/tab-details/tab-details.module').then(
+                    (m) => m.TabDetailsPageModule
+                  ),
+              },
+              {
+                path: 'foodList/:foodListId',
+                loadChildren: () =>
+                  import('../tab1/tab1-food/tab1-food.module').then(
+                    (m) => m.Tab1FoodPageModule
+                  ),
+              },
+            ],
           },
+          // {
+          //   path: 'foodList/:foodListId',
+          //   loadChildren: () =>
+          //     import('../tab1/tab1-food/tab1-food.module').then(
+          //       (m) => m.Tab1FoodPageModule
+          //     ),
+          // },
         ],
       },
       {

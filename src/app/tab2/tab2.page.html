@@ -1,17 +1,57 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab g2
-    </ion-title>
+    <ion-title>Account Info</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <!-- <ion-item> -->
+  <div class="userAvatar">
+    <ion-avatar>
+      <img
+        src="https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80"
+      />
+    </ion-avatar>
+    <div class="userName">
+      <h3>Angel Mathew</h3>
+      <ion-label color="primary">View Account</ion-label>
+    </div>
+  </div>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="medkit"></ion-icon>
+      <h4>Covid 19 Safety</h4>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="wallet"></ion-icon>
+      <h4>Wallet</h4>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="heart"></ion-icon>
+      <h4>Favorites</h4>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="business"></ion-icon>
+      <h4>Business Preferences</h4>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="wallet"></ion-icon>
+      <h4>Wallet</h4>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="heart"></ion-icon>
+      <h4>Favorites</h4>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="business"></ion-icon>
+      <h4>Business Preferences</h4>
+    </ion-item>
+  </ion-list>
 </ion-content>

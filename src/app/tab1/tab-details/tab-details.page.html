@@ -1,15 +1,94 @@
-<ion-header class="ion-no-border" *ngIf="loadedFood">
-  <ion-toolbar>
+<!-- Cover Image -->
+<ion-header
+  class="ion-no-border ion-no-padding"
+  *ngIf="loadedFood"
+  collapse="condense"
+>
+  <ion-toolbar class="ion-no-padding ion-no-margin">
     <ion-img class="bannerImage" [src]="loadedFood.imageUrl"> </ion-img>
 
     <ion-buttons class="backButton" slot="start">
-      <ion-back-button defaultHref="/" color="dark"></ion-back-button>
+      <ion-back-button
+        icon="arrow-back-circle"
+        text=""
+        defaultHref="/"
+        color="light"
+      >
+      </ion-back-button>
     </ion-buttons>
   </ion-toolbar>
-
-  <ion-title>hi</ion-title>
 </ion-header>
+<!-- Cover Image -->
 
 <ion-content>
-  <h2>{{loadedFood.title}}</h2>
+  <!-- Restaurant Details -->
+  <ion-grid class="ion-padding">
+    <ion-row sizeLg="4" sizeXs="12" class="ion-no-margin">
+      <ion-col sizeXs="12">
+        <h2>{{loadedFood.restaurant}}</h2>
+      </ion-col>
+      <ion-col sizeXs="12">
+        <ion-icon *ngFor="let item of rating" name="{{item}}"></ion-icon>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col sizeLg="1" sizeXs="4">
+        <ion-badge>Saved ${{loadedFood.dealAmount}}</ion-badge>
+      </ion-col>
+      <ion-col>
+        <p class="ion-no-margin">
+          Delivery Fee: <strong>${{loadedFood.deliveryFee}}</strong>
+        </p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row sizeLg="4" sizeXs="8">
+      <ion-col>
+        <ion-toolbar>
+          <ion-segment value="pickup" role="tablist" slot="start">
+            <ion-segment-button value="delivery">
+              <ion-label>Delivery</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="pickup">
+              <ion-label>Pickup</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- Restaurant Details -->
+
+  <!-- Restaurant List -->
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item
+            [routerLink]="['foodList/', i.id]"
+            *ngFor="let i of foodList"
+            detail
+          >
+            <ion-thumbnail slot="start">
+              <img [src]="loadedFood.imageUrl" />
+            </ion-thumbnail>
+            <ion-label>
+              <h2><strong>{{i.name}}</strong></h2>
+              <h3>{{i.description}}</h3>
+              <p><strong>${{i.ingredients.length}}</strong></p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- Restaurant List -->
 </ion-content>
+<ion-footer class="ion-no-border" *ngIf="foodListCount!==0">
+  <ion-toolbar>
+    <ion-button expand="full" color="dark" (click)="openViewCartModal()"
+      >View Cart
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

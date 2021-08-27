@@ -1,0 +1,23 @@
+.userAvatar {
+  display: flex;
+  flex-direction: row;
+  margin: 1em;
+  h3 {
+    margin-bottom: 0;
+  }
+  ion-label {
+    margin-top: 0.2em;
+    // margin-left: 1em;
+  }
+  .userName {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+  }
+}
+ion-item {
+  margin: 1em 0;
+  h4 {
+    margin-left: 1em;
+  }
+}

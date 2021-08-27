@@ -1,17 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title> Tab 3 </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-button fill="clear"> button </ion-button>
+  <ion-grid style="background-color: aquamarine">
+    <ion-row class="ion-justify-content-center">
+      <ion-col
+        class="ion-text-center ion-padding"
+        size="3"
+        *ngFor="let item of columns;let i=index"
+      >
+        Row 1 col {{i}}
+      </ion-col>
+      <!-- <ion-col no-padding> Row 1col2</ion-col> -->
+    </ion-row>
+  </ion-grid>
 </ion-content>

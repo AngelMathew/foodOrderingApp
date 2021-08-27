@@ -4,7 +4,7 @@
   <ion-toolbar mode="ios">
     <ion-title>
       <ion-buttons>
-        <ion-chip class="deliveryChip">
+        <ion-chip class="deliveryChip" (click)="onPickLocation()">
           <ion-label>Delivery</ion-label>
         </ion-chip>
         <ion-chip color="dark" outline="true">
@@ -12,12 +12,49 @@
         </ion-chip>
       </ion-buttons>
     </ion-title>
+    <ion-button slot="end" color="transparent" (click)="openModal()">
+      <ion-icon name="filter-circle"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+  <ion-toolbar class="ion-text-center">
+    <ion-spinner *ngIf="!isLoadingcurrentLocation"></ion-spinner>
+    <ion-text
+      *ngIf="isLoadingcurrentLocation"
+      (click)="onPickLocation()"
+      role="button"
+      class="currentLocation"
+      ><div class="location">
+        <p>Now</p>
+        <div class="dot"></div>
+        <p class="locationPara">{{currentLocation}}</p>
+      </div>
+      <ion-icon name="chevron-down-outline"></ion-icon
+    ></ion-text>
   </ion-toolbar>
 </ion-header>
 
 <!-- Header -->
 
 <ion-content [fullscreen]="true">
+  <!-- Fab Icon -->
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="light">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon name="logo-vimeo"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <!-- Fab Icon -->
+
   <ion-slides pager="true" [options]="slideOpts">
     <ion-slide *ngFor="let item of promotions">
       <div class="slideContent">
@@ -36,14 +73,17 @@
   <!-- List of food items -->
   <ion-grid>
     <ion-row>
-      <ion-col sizeLg="4" sizeXs="12" *ngFor="let item of food">
-        <ion-card [routerLink]="['./', item.id]">
-          <!-- <ion-thumbnail> -->
+      <ion-col
+        sizeLg="4"
+        sizeXs="12"
+        *ngFor="let item of food |sortPipe:'asc':sortColumn"
+      >
+        <ion-card [routerLink]="['food/', item.id]">
           <ion-img class="imageCard" [src]="item.imageUrl"></ion-img>
-          <!-- </ion-thumbnail> -->
           <ion-card-header>
             <ion-card-subtitle>{{item.title}}</ion-card-subtitle>
             <ion-card-title>{{item.restaurant}}</ion-card-title>
+            <ion-badge color="primary">Save ${{item.dealAmount}}</ion-badge>
           </ion-card-header>
           <ion-card-content>
             Founded in 1829 on an isthmus between Lake Monona and Lake Mendota,
@@ -53,5 +93,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
 </ion-content>

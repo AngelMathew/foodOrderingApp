@@ -9,6 +9,9 @@ import { environment } from '../../environments/environment';
 import { map, switchMap } from 'rxjs/operators';
 import { Placelocation } from '../Model/location.model';
 import { of } from 'rxjs';
+import { Geolocation } from '@capacitor/geolocation';
+import { SortFilterComponent } from '../sort-filter/sort-filter.component';
+import { SortService } from '../services/sort.service';
 
 @Component({
   selector: 'app-tab1',
@@ -20,7 +23,9 @@ export class Tab1Page implements OnInit {
   selectedLocationImage;
   food: Food[];
   promotions: Promotion[];
-  currentLocation = 'Current Location';
+  currentLocation;
+  isLoadingcurrentLocation = false;
+  sortColumn = '';
   slideOpts = {
     initialSlide: 0,
     speed: 400,
@@ -29,12 +34,44 @@ export class Tab1Page implements OnInit {
   constructor(
     private foodService: FoodService,
     private modalCtrl: ModalController,
-    private http: HttpClient
+    private http: HttpClient,
+    private sortService: SortService
   ) {}
   ngOnInit() {
+    this.printCurrentPosition();
+    this.sortService.sortString.subscribe((data) => {
+      this.sortColumn = data;
+    });
     // this.promotions = this.foodService.getAllPromotions();
     // this.food = this.foodService.getAllFood();
   }
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: SortFilterComponent,
+      componentProps: { selectedSort: 'hi' },
+    });
+    return await modal.present();
+  }
+
+  printCurrentPosition = async () => {
+    try {
+      const coordinates = await Geolocation.getCurrentPosition();
+      // this.isLoadingcurrentLocation = true;
+      const loc = this.getAddress(
+        coordinates.coords.latitude,
+        coordinates.coords.longitude
+      );
+      // this.currentLocation = coordinates;
+      loc.subscribe((data) => {
+        console.log('data', data);
+        this.isLoadingcurrentLocation = true;
+        this.currentLocation = data;
+      });
+    } catch (e) {
+      console.log('Error', e);
+    }
+  };
+
   ionViewWillEnter() {
     console.log('ionViewWill');
     this.promotions = this.foodService.getAllPromotions();

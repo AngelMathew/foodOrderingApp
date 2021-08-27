@@ -1,12 +1,19 @@
 .bannerImage {
   position: relative;
+  height: 10em;
+  object-fit: cover;
+  width: 100%;
+  padding: 0px !important;
 }
 
 .backButton {
   position: absolute;
   top: 0;
+  margin: 2em 1em;
 }
-
-.content {
-  padding: 1em;
+ion-fab {
+  width: 100%;
+}
+ion-toolbar {
+  padding: 0 !important;
 }

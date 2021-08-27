@@ -10,7 +10,7 @@ export class FoodService {
     {
       id: 1,
       title: 'Pizza',
-      restaurant: 'Montanas',
+      restaurant: 'Fresh Queensway',
       imageUrl:
         // eslint-disable-next-line max-len
         'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80',
@@ -21,57 +21,57 @@ export class FoodService {
     {
       id: 2,
       title: 'Sushi',
-      restaurant: 'Montanas',
+      restaurant: 'Jalearn',
       imageUrl:
         // eslint-disable-next-line max-len
         'https://images.unsplash.com/photo-1585144570564-9629fa5ab791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1627&q=80',
       deliveryFee: 1,
       deal: true,
-      dealAmount: 10,
+      dealAmount: 20,
     },
     {
       id: 3,
       title: 'Tacos',
-      restaurant: 'Montanas',
+      restaurant: 'Sunrise Tacos',
       imageUrl:
         // eslint-disable-next-line max-len
         'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=828&q=80',
       deliveryFee: 1,
       deal: true,
-      dealAmount: 10,
+      dealAmount: 3,
     },
     {
       id: 4,
       title: 'Fish & Chips',
-      restaurant: 'Montanas',
+      restaurant: 'California Sandwiches',
       imageUrl:
         // eslint-disable-next-line max-len
         'https://images.unsplash.com/photo-1565192259022-0427b058f372?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
       deliveryFee: 0,
       deal: false,
-      dealAmount: 0,
+      dealAmount: 6,
     },
     {
       id: 5,
       title: 'Vegan Pizza',
-      restaurant: 'Montanas',
+      restaurant: 'Freshii',
       imageUrl:
         // eslint-disable-next-line max-len
         'https://images.unsplash.com/photo-1565192259022-0427b058f372?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
       deliveryFee: 1,
       deal: true,
-      dealAmount: 10,
+      dealAmount: 15,
     },
     {
       id: 6,
-      title: 'Sushi',
-      restaurant: 'Montanas',
+      title: 'Galbi',
+      restaurant: 'Insadong',
       imageUrl:
         // eslint-disable-next-line max-len
         'https://images.unsplash.com/photo-1528696353932-be229661fd48?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80',
       deliveryFee: 1,
       deal: true,
-      dealAmount: 10,
+      dealAmount: 2,
     },
   ];
 
