@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Food } from '../Model/food.model';
 import { Promotion } from '../Model/promotion.model';
 
@@ -6,6 +6,8 @@ import { Promotion } from '../Model/promotion.model';
   providedIn: 'root',
 })
 export class FoodService {
+  showTab = new EventEmitter<boolean>();
+
   private foodArray: Food[] = [
     {
       id: 1,

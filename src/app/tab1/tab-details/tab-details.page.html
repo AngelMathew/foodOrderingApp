@@ -11,7 +11,7 @@
       <ion-back-button
         icon="arrow-back-circle"
         text=""
-        defaultHref="/"
+        defaultHref="home/tabs/tab1"
         color="light"
       >
       </ion-back-button>
@@ -38,7 +38,7 @@
       </ion-col>
       <ion-col>
         <p class="ion-no-margin">
-          Delivery Fee: <strong>${{loadedFood.deliveryFee}}</strong>
+          Delivery Fee : <strong>${{loadedFood.deliveryFee}}</strong>
         </p>
       </ion-col>
     </ion-row>
@@ -87,7 +87,11 @@
 </ion-content>
 <ion-footer class="ion-no-border" *ngIf="foodListCount!==0">
   <ion-toolbar>
-    <ion-button expand="full" color="dark" (click)="openViewCartModal()"
+    <ion-button
+      class="ion-margin"
+      expand="full"
+      color="dark"
+      (click)="openViewCartModal()"
       >View Cart
     </ion-button>
   </ion-toolbar>

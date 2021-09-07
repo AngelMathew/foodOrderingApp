@@ -12,6 +12,7 @@ import { of } from 'rxjs';
 import { Geolocation } from '@capacitor/geolocation';
 import { SortFilterComponent } from '../sort-filter/sort-filter.component';
 import { SortService } from '../services/sort.service';
+import { Browser } from '@capacitor/browser';
 
 @Component({
   selector: 'app-tab1',
@@ -37,13 +38,19 @@ export class Tab1Page implements OnInit {
     private http: HttpClient,
     private sortService: SortService
   ) {}
+
   ngOnInit() {
+    // this.foodService.showTab.emit(true);
     this.printCurrentPosition();
     this.sortService.sortString.subscribe((data) => {
       this.sortColumn = data;
     });
     // this.promotions = this.foodService.getAllPromotions();
     // this.food = this.foodService.getAllFood();
+  }
+
+  async openCapacitorSite() {
+    await Browser.open({ url: 'http://capacitorjs.com/' });
   }
   async openModal() {
     const modal = await this.modalCtrl.create({
@@ -73,6 +80,7 @@ export class Tab1Page implements OnInit {
   };
 
   ionViewWillEnter() {
+    this.foodService.showTab.emit(true);
     console.log('ionViewWill');
     this.promotions = this.foodService.getAllPromotions();
     this.food = this.foodService.getAllFood();

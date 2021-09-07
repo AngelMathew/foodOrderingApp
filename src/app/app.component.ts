@@ -8,14 +8,9 @@ import { SplashScreen } from '@capacitor/splash-screen';
 export class AppComponent implements OnInit {
   constructor() {}
   ngOnInit() {
-    console.log('inside splasj');
+    SplashScreen.show({
+      showDuration: 2000,
+      autoHide: true,
+    });
   }
-
-  //   console.log('inside splash');
-  //   SplashScreen.show({
-  //     showDuration: 3000,
-  //     autoHide: true,
-  //     fadeInDuration: 100,
-  //     fadeOutDuration: 3000,
-  //   });
 }

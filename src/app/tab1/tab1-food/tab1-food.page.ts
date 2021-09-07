@@ -63,7 +63,7 @@ export class Tab1FoodPage implements OnInit {
           loadingEl.dismiss();
         }, 1000);
       });
-    this.router.navigate(['tabs/tab1/food/', this.foodId]);
+    this.router.navigate(['home/tabs/tab1/food/', this.foodId]);
   }
   onIncrementQuantity() {
     console.log('clicked');

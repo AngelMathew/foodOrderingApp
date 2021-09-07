@@ -15,7 +15,7 @@ export class RapidService {
     return this.http.get<any[]>('https://burgers1.p.rapidapi.com/burgers', {
       headers: {
         'x-rapidapi-host': 'burgers1.p.rapidapi.com',
-        'x-rapidapi-key': '918a5ad0bcmsh9bf40860a8ce5a0p107525jsnd6f7e8a62a1e',
+        'x-rapidapi-key': 'd84ba759a5mshd270096b4092fe9p12f89ajsn2e281c870dfa',
       },
     });
   }
@@ -26,7 +26,7 @@ export class RapidService {
         headers: {
           'x-rapidapi-host': 'burgers1.p.rapidapi.com',
           'x-rapidapi-key':
-            '918a5ad0bcmsh9bf40860a8ce5a0p107525jsnd6f7e8a62a1e',
+            'd84ba759a5mshd270096b4092fe9p12f89ajsn2e281c870dfa',
         },
       }
     );

@@ -31,6 +31,7 @@ export class TabDetailsPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    // this.foodService.showTab.emit(false);
     this.cartService.showCart.subscribe((show) => {
       this.showCart = show;
     });
@@ -52,6 +53,9 @@ export class TabDetailsPage implements OnInit {
       this.foodList = data;
       console.log(data);
     });
+  }
+  ionViewWillEnter() {
+    this.foodService.showTab.emit(false);
   }
 
   async openViewCartModal() {

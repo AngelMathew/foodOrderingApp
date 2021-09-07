@@ -1,21 +1,48 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Tab 3 </ion-title>
+    <ion-title> Free Food </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button fill="clear"> button </ion-button>
-  <ion-grid style="background-color: aquamarine">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img style="height: 10em" src="../../assets/25481.jpg"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-text-uppercase ion-text-center">
+        <ion-note>Your code</ion-note>
+      </ion-col>
+    </ion-row>
     <ion-row class="ion-justify-content-center">
       <ion-col
-        class="ion-text-center ion-padding"
-        size="3"
-        *ngFor="let item of columns;let i=index"
+        class="ion-text-center ion-justify-content-center ion-padding"
+        style="background-color: transparent"
       >
-        Row 1 col {{i}}
+        <ion-button
+          style="border: 1px dashed gray"
+          color="primary"
+          fill="clear"
+          class="ion-margin notePadding"
+          (click)="writeToClipboard()"
+          >eats-ang2123</ion-button
+        >
       </ion-col>
-      <!-- <ion-col no-padding> Row 1col2</ion-col> -->
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-margin">
+      <ion-col class="ion-text-center" size="12">
+        <ion-text color="medium">
+          Share your code with a friend. When they use it for their Uber Eats
+          order, you both get $10 off a $20 order.</ion-text
+        >
+      </ion-col>
+      <ion-col class="ion-text-center">
+        <ion-button fill="clear" (click)="openCapacitorSite()">
+          Share
+        </ion-button>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

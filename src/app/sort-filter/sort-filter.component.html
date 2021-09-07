@@ -8,6 +8,10 @@
 </ion-header>
 <ion-content>
   <ion-list>
+    <ion-list-header>
+      <ion-label>Sort</ion-label>
+    </ion-list-header>
+
     <ion-item>
       <ion-icon name="card-outline" (click)="sortItem()"></ion-icon>
       <ion-label>Deals</ion-label>
@@ -23,7 +27,45 @@
     </ion-item>
     <ion-item>
       <ion-icon name="star-outline"></ion-icon>
-      <ion-label>{{ selectedSort }}</ion-label>
+      <ion-label>Rating</ion-label>
     </ion-item>
+
+    <ion-list-header>
+      <ion-label>Max Delivery Fee</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-range
+        min="2"
+        max="10"
+        color="secondary"
+        step="2"
+        snaps="true"
+        pin="true"
+      >
+        <ion-label slot="start">$2</ion-label>
+        <ion-label slot="end">$10</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-radio-group value="biff">
+      <ion-list-header>
+        <ion-label>Dietry</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Gluten Free</ion-label>
+        <ion-radio slot="start" value="biff"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Halal</ion-label>
+        <ion-radio slot="start" value="griff"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Allergy Friendly</ion-label>
+        <ion-radio slot="start" value="buford"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
   </ion-list>
 </ion-content>

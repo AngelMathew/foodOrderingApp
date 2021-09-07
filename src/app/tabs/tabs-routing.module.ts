@@ -8,13 +8,43 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: '',
         // loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
         children: [
           {
-            path: '',
+            path: 'tab1',
             loadChildren: () =>
               import('../tab1/tab1.module').then((m) => m.Tab1PageModule),
+            children: [
+              {
+                path: '',
+                loadChildren: () =>
+                  import('../tab1/tab1.module').then((m) => m.Tab1PageModule),
+              },
+              {
+                path: 'food/:foodId',
+                loadChildren: () =>
+                  import('../tab1/tab-details/tab-details.module').then(
+                    (m) => m.TabDetailsPageModule
+                  ),
+                children: [
+                  {
+                    path: '',
+                    loadChildren: () =>
+                      import('../tab1/tab-details/tab-details.module').then(
+                        (m) => m.TabDetailsPageModule
+                      ),
+                  },
+                  {
+                    path: 'foodList/:foodListId',
+                    loadChildren: () =>
+                      import('../tab1/tab1-food/tab1-food.module').then(
+                        (m) => m.Tab1FoodPageModule
+                      ),
+                  },
+                ],
+              },
+            ],
           },
           {
             path: 'food/:foodId',
@@ -60,14 +90,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/home/tabs/tab1',
         pathMatch: 'full',
       },
     ],
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/home/tabs/tab1',
     pathMatch: 'full',
   },
 ];
